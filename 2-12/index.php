@@ -1,7 +1,10 @@
 <form action="result.php" method="post">
   名前：<input type="text" name="my_name" />
   <br>
-  ご希望商品 : <input type ="ratio" name="choices"/>
+  ご希望商品 :
+   <input type ="radio" name="choices" value="A"/>A賞
+   <input type ="radio" name="choices" value="B"/>B賞
+   <input type ="radio" name="choices" value="C"/>C賞
   <br>
   個数：<select name="number">
       <?php for ($i=1;$i<=10;$i++){ ?>
