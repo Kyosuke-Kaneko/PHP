@@ -1,4 +1,5 @@
 <?php
+require_once('getData.php');
 // DB名
 define('DB_DATABASE', 'checktest4');
 // MySQLのユーザー名
@@ -24,16 +25,4 @@ function db_connect() {
         die();
     }
 }
-
-// 実行したいSQL文を準備
-$sql = "INSERT INTO users (name, password) VALUES ('Taro Yamada', 'taro')";
-// 関数db_connect()からPDOを取得する
-$pdo = db_connect();
-try {
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    echo 'インサートしました。';
-} catch (PDOException $e) {
-    echo 'Error: ' . $e->getMessage();
-    die();
-}
+$getData = new getData();

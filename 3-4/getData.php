@@ -21,6 +21,7 @@ class getData{
         $getusers_sql = "SELECT * FROM users limit 1";
         $users_data = $this->pdo->query($getusers_sql)->fetch(PDO::FETCH_ASSOC);
         return $users_data;
+    }
     
     /**
      * 記事情報の取得
@@ -28,7 +29,7 @@ class getData{
      * @param 
      * @return array $post_data 記事情報
      */
-    public function getPostData(){
+    function getPostData(){
         $getposts_sql = "SELECT * FROM posts ORDER BY id desc";
         $post_data = $this->pdo->query($getposts_sql);
         return $post_data;
