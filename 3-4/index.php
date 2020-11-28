@@ -2,6 +2,8 @@
 require_once('getData.php');
 require_once('pdo.php');
 $getData = new getData();
+$userData = $getData->getUserData();
+$postData = $getData->getPostData();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,14 +17,53 @@ $getData = new getData();
  <header>
   <div class="header-logo"><img src="img/1599315827_logo.png"></div>
   <div class="heder-right-box">
-    <div class="user-name">
-      <?php echo $getData->getUserData() ?>
+    <div class="user-name-box">
+      <div class="user-name">
+        ようこそ <?php echo $userData['last_name'].$userData['first_name'] ?> さん
+      </div>
     </div>
-    <div class="login-date"></div>
+    <div class="login-date-box">
+      <div class="login-date">
+        最終ログイン日: <?php echo $userData['last_login'] ?>
+      </div>
+    </div>
   </div>
  </header>
  <div class="main">
-   <?php echo $getData->getUserData() ?>
+   <div class="article-box">
+     <table>
+       <tr>
+        <th>ID</th>
+        <th>タイトル</th>
+        <th>カテゴリー</th>
+        <th>本文</th>
+        <th>投稿日</th>
+       </tr>
+       <tr>
+         <?php foreach( $postData as $post):?> 
+           <td><?php echo $post['id']; ?></td>
+           <td><?php echo $post['title']; ?></td>
+           <td><?php 
+           switch($post['category_no']){
+            case 1:
+              $post['category_no'] = "食事";
+            break;
+            case 2:
+              $post['category_no'] = "旅行";
+            break;
+            default:
+              $post['category_no'] = "その他";
+            break;
+          };
+          echo $post['category_no']; ?></td>
+           <td><?php echo $post['comment']; ?></td>
+           <td><?php echo $post['created']; ?></td>
+       </tr>
+          <?php endforeach?>
+         
+     </table>
+   
+   </div>
   </div>
  <footer>Y & I Group.inc</footer>
   

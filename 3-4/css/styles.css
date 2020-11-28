@@ -11,6 +11,7 @@ header {
   width:200px;
   height: 120px;
   display: inline;
+  background-color: #add8e6;
 }
 .header-logo img {
   width: 100%;
@@ -19,16 +20,43 @@ header {
   width: 800px;
   height:120px;
 }
-.user-name {
+.user-name-box {
   width: 800px;
   height:60px;
   background-color: #87ceeb;
+  position: relative;
 }
-.login-date {
+.user-name {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform:translateY(-50%);
+}
+.login-date-box {
   width: 800px;
   height:60px;
   background-color: #00ffff;
   float: right;
+  position: relative;
+}
+.login-date {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform:translateY(-50%);
+}
+.main {
+  width: 1000px;
+}
+.article-box {
+  width: 80%;
+  margin: 10px auto;
+}
+table th {
+  background-color: #87ceeb;
+}
+td {
+  background-color: #e0ffff;
 }
 footer {
   width: 1000px;
