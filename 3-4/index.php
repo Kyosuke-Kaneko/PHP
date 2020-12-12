@@ -1,5 +1,4 @@
 <?php 
-require_once('getData.php');
 require_once('pdo.php');
 $getData = new getData();
 $userData = $getData->getUserData();
@@ -39,8 +38,7 @@ $postData = $getData->getPostData();
         <th>本文</th>
         <th>投稿日</th>
        </tr>
-       <tr>
-         <?php foreach( $postData as $post):?> 
+         <?php foreach( $postData as $post):?><tr> 
            <td><?php echo $post['id']; ?></td>
            <td><?php echo $post['title']; ?></td>
            <td><?php 
